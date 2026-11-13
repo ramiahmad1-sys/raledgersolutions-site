@@ -25,3 +25,11 @@
   var reset = function (ev) { if (ev.matches) setOpen(false); };
   if (mq.addEventListener) mq.addEventListener('change', reset); else if (mq.addListener) mq.addListener(reset);
 })();
+
+// Load the chat box on every page. It stays hidden until the chat service responds.
+(function () {
+  if (document.querySelector('script[src="/assets/chat-widget.js"]')) return;
+  var s = document.createElement('script');
+  s.src = '/assets/chat-widget.js';
+  document.body.appendChild(s);
+})();
