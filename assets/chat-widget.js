@@ -1,10 +1,14 @@
 (function () {
+  if (window.__raChatLoaded) return; // never start twice on one page
+  window.__raChatLoaded = true;
+  // The Free Tools page promises that nothing typed there is sent anywhere, so the chat stays off it.
+  if (/^\/tools(\/|$)/.test(location.pathname)) return;
   // Set this to the URL of your chat backend (see note below). Leave empty to show a contact fallback.
   var CHAT_API_URL = 'https://ra-ledger-phone.onrender.com/chat';
 
   var css = ''
   + '#ra-chat-btn{position:fixed;right:16px;bottom:16px;z-index:9999;background:#12314f;color:#fff;border:0;border-radius:28px;padding:12px 18px;font:600 15px system-ui,Arial,sans-serif;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}'
-  + '#ra-chat-box{position:fixed;right:16px;bottom:72px;z-index:9999;width:min(340px,calc(100vw - 32px));height:440px;display:none;flex-direction:column;background:#fff;border:1px solid #c9d1da;border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,.25);font:14px system-ui,Arial,sans-serif;color:#1a1a1a}'
+  + '#ra-chat-box{position:fixed;right:16px;bottom:72px;z-index:9999;width:min(340px,calc(100vw - 32px));height:440px;max-height:calc(100vh - 170px);display:none;flex-direction:column;background:#fff;border:1px solid #c9d1da;border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,.25);font:14px system-ui,Arial,sans-serif;color:#1a1a1a}'
   + '#ra-chat-box.open{display:flex}'
   + '#ra-chat-head{background:#12314f;color:#fff;padding:10px 12px;border-radius:12px 12px 0 0;font-weight:600;display:flex;justify-content:space-between;align-items:center}'
   + '#ra-chat-head button{background:none;border:0;color:#fff;font-size:18px;cursor:pointer}'
@@ -31,13 +35,27 @@
   box.setAttribute('role', 'dialog');
   box.innerHTML = '<div id="ra-chat-head"><span>RA Ledger Assistant</span><button type="button" aria-label="Close chat">&times;</button></div>'
     + '<div id="ra-chat-log"></div>'
-    + '<div class="ra-disc">Automated assistant. It does not give tax or legal advice. For a free 20-minute call, email certifiedacct10@gmail.com.</div>'
+    + '<div class="ra-disc">Automated assistant. Your messages are sent to our AI service to write a reply, so please don\'t share sensitive details. Not tax or legal advice. Questions? Call 718-285-6959.</div>'
     + '<form id="ra-chat-form"><input id="ra-chat-input" type="text" maxlength="500" placeholder="Ask a question..." aria-label="Your question"><button type="submit">Send</button></form>';
+
+  // On phones the site shows a fixed call bar along the bottom; sit above it instead of covering it.
+  function place() {
+    var bar = document.querySelector('.call-bar');
+    var lift = 0;
+    if (bar) {
+      var cs = window.getComputedStyle(bar);
+      if (cs.display !== 'none' && cs.position === 'fixed') lift = Math.round(bar.getBoundingClientRect().height);
+    }
+    btn.style.bottom = (16 + lift) + 'px';
+    box.style.bottom = (72 + lift) + 'px';
+  }
 
   // Stay hidden until the chat backend answers, so visitors never see a broken chat button.
   btn.style.display = 'none';
   document.body.appendChild(btn);
   document.body.appendChild(box);
+  place();
+  window.addEventListener('resize', place);
   if (CHAT_API_URL) {
     fetch(CHAT_API_URL, { method: 'GET' }).then(function (r) { if (r.ok) btn.style.display = ''; }).catch(function () {});
   }
@@ -71,7 +89,7 @@
     input.value = '';
     add(q, 'user');
     history.push({ role: 'user', content: q });
-    if (!CHAT_API_URL) { add('The chat is not connected yet. Please email certifiedacct10@gmail.com.', 'bot'); return; }
+    if (!CHAT_API_URL) { add('The chat is not connected yet. Please email info@raledgersolutions.com.', 'bot'); return; }
     var wait = document.createElement('div');
     wait.className = 'ra-msg ra-bot';
     wait.textContent = '...';
@@ -84,12 +102,12 @@
       });
       if (!res.ok) throw new Error('HTTP ' + res.status);
       var data = await res.json();
-      var reply = String(data.reply || 'Sorry, I could not answer that. Please email certifiedacct10@gmail.com.');
+      var reply = String(data.reply || 'Sorry, I could not answer that. Please email info@raledgersolutions.com.');
       wait.remove();
       add(reply, 'bot');
       history.push({ role: 'assistant', content: reply });
     } catch (err) {
-      wait.textContent = 'Sorry, the chat is unavailable right now. Please email certifiedacct10@gmail.com.';
+      wait.textContent = 'Sorry, the chat is unavailable right now. Please email info@raledgersolutions.com.';
     }
   });
 })();
