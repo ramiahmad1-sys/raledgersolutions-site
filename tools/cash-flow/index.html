@@ -1,168 +1,129 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Free Cash-Flow Forecaster | RA Ledger Solutions</title>
-<meta name="description" content="Free 12-month cash-flow forecaster for small businesses. Runs in your browser; nothing you type is sent or saved.">
-<link rel="canonical" href="https://raledgersolutions.com/tools/cash-flow">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="RA Ledger Solutions">
-<meta property="og:title" content="Free Cash-Flow Forecaster for Small Businesses">
-<meta property="og:description" content="See whether you'll have enough cash over the next 12 months. Free, no sign-up, and nothing you type leaves your browser.">
-<meta property="og:url" content="https://raledgersolutions.com/tools/cash-flow">
-<meta property="og:image" content="https://raledgersolutions.com/assets/tools-share.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Free Cash-Flow Forecaster for Small Businesses">
-<meta name="twitter:description" content="See whether you'll have enough cash over the next 12 months. Free, no sign-up.">
-<meta name="twitter:image" content="https://raledgersolutions.com/assets/tools-share.png">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Cash-Flow Forecaster","url":"https://raledgersolutions.com/tools/cash-flow","applicationCategory":"BusinessApplication","operatingSystem":"Any (runs in your web browser)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@id":"https://raledgersolutions.com/#business"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://raledgersolutions.com/"},{"@type":"ListItem","position":2,"name":"Free Tools","item":"https://raledgersolutions.com/tools"},{"@type":"ListItem","position":3,"name":"Cash-Flow Forecaster","item":"https://raledgersolutions.com/tools/cash-flow"}]}</script>
-<style>body{margin:0}[hidden]{display:none!important}</style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<style>
-/* Layout: a short intro, a two-tool switcher, then each tool as inputs on the left and a results "statement" on the right, closed by a consultation call to action. */
-:root {
-  --bg: #f3f5f3;
-  --surface: #ffffff;
-  --sunk: #e8ece9;
-  --fg: #17211d;
-  --muted: #5d6b65;
-  --line: #d5dcd8;
-  --accent: #12314f;
-  --accent-fg: #ffffff;
-  --accent-soft: #dfe7ef;
-  --good: #2c7a4b;
-  --bad: #b23a2e; --bad-bg: #f9e1dd;
-  --chart-fill: rgb(18 49 79 / .12);
-  --font-display: "Spectral", Georgia, "Times New Roman", serif;
-  --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-num: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
-  --radius: 6px;
-}
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --bg: #111816; --surface: #19221f; --sunk: #222d29; --fg: #e4ebe7; --muted: #95a39c; --line: #2f3c37;
-  --accent: #6cc3a2; --accent-fg: #0d1f18; --accent-soft: #1f3b31; --good: #7fd3a0; --bad: #f08a7c; --bad-bg: #3d1f1b;
-  --chart-fill: rgb(108 195 162 / .14); color-scheme: dark; } }
-:root[data-theme="dark"] {
-  --bg: #111816; --surface: #19221f; --sunk: #222d29; --fg: #e4ebe7; --muted: #95a39c; --line: #2f3c37;
-  --accent: #6cc3a2; --accent-fg: #0d1f18; --accent-soft: #1f3b31; --good: #7fd3a0; --bad: #f08a7c; --bad-bg: #3d1f1b;
-  --chart-fill: rgb(108 195 162 / .14); color-scheme: dark; }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free Cash-Flow Forecaster | RA Ledger Solutions</title>
+  <meta name="description" content="Free 12-month cash-flow forecaster for small businesses. Runs in your browser; nothing you type is sent or saved.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/tools.css">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="icon" href="/assets/icon-512.png" type="image/png" sizes="512x512">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="canonical" href="https://raledgersolutions.com/tools/cash-flow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RA Ledger Solutions">
+  <meta property="og:title" content="Free Cash-Flow Forecaster for Small Businesses">
+  <meta property="og:description" content="See whether you'll have enough cash over the next 12 months. Free, no sign-up, and nothing you type leaves your browser.">
+  <meta property="og:url" content="https://raledgersolutions.com/tools/cash-flow">
+  <meta property="og:image" content="https://raledgersolutions.com/assets/tools-share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="RA Ledger Solutions Free Tools: The Books Checkup and The Runway Check. Built for Staten Island business owners.">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Cash-Flow Forecaster for Small Businesses">
+  <meta name="twitter:description" content="See whether you'll have enough cash over the next 12 months. Free, no sign-up.">
+  <meta name="twitter:image" content="https://raledgersolutions.com/assets/tools-share.png">
+  <meta name="theme-color" content="#12314f">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Cash-Flow Forecaster","url":"https://raledgersolutions.com/tools/cash-flow","applicationCategory":"BusinessApplication","operatingSystem":"Any (runs in your web browser)","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@id":"https://raledgersolutions.com/#business"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://raledgersolutions.com/"},{"@type":"ListItem","position":2,"name":"Free Tools","item":"https://raledgersolutions.com/tools"},{"@type":"ListItem","position":3,"name":"Cash-Flow Forecaster","item":"https://raledgersolutions.com/tools/cash-flow"}]}</script>
 
-* { box-sizing: border-box; }
-body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 16px; line-height: 1.55; }
-.wrap { max-width: 1120px; margin: 0 auto; padding-block: 20px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: grid; gap: 28px; }
-h1, h2, h3 { font-family: var(--font-display); font-weight: 600; margin: 0; text-wrap: balance; line-height: 1.15; }
-p { margin: 0; }
-a { color: var(--accent); }
-.num { font-family: var(--font-num); font-variant-numeric: tabular-nums; }
-.label { font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
-button, input, select { font: inherit; color: inherit; }
-button { cursor: pointer; }
-:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-header.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--fg); }
-.mark { width: 34px; height: 34px; border-radius: 4px; background: var(--accent); color: var(--accent-fg); display: grid; place-items: center; font-family: var(--font-display); font-weight: 600; font-size: 15px; }
-.brand span { font-family: var(--font-display); font-weight: 600; font-size: 18px; }
-.btn { display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line); background: var(--surface); padding: 9px 16px; border-radius: var(--radius); font-weight: 600; font-size: 14.5px; text-decoration: none; color: var(--fg); }
-.btn:hover { border-color: var(--muted); }
-.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
-.btn.primary:hover { filter: brightness(1.08); }
-
-.intro { display: grid; gap: 10px; max-width: 680px; padding-top: 8px; }
-.intro h1 { font-size: clamp(30px, 5vw, 44px); }
-.intro p { color: var(--muted); font-size: 17px; }
-
-.switch { display: flex; flex-wrap: wrap; gap: 10px; }
-.switch button { flex: 1 1 260px; text-align: left; border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius); padding: 14px 16px; display: grid; gap: 2px; }
-.switch button strong { font-family: var(--font-display); font-size: 18px; font-weight: 600; }
-.switch button span { color: var(--muted); font-size: 14px; }
-.switch button[aria-selected="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); background: var(--accent-soft); }
-
-.tool { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 20px; align-items: start; }
-@media (max-width: 880px) { .tool { grid-template-columns: minmax(0, 1fr); } }
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; display: grid; gap: 18px; min-width: 0; }
-.card h2 { font-size: 22px; }
-.hint { color: var(--muted); font-size: 14px; }
-
-.field { display: grid; gap: 6px; min-width: 0; }
-.field-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-.field label { font-weight: 600; font-size: 14.5px; }
-.field output { font-family: var(--font-num); font-variant-numeric: tabular-nums; font-size: 14px; }
-.money-in { display: flex; align-items: center; border: 1px solid var(--line); background: var(--bg); border-radius: var(--radius); }
-.money-in span { padding-left: 10px; color: var(--muted); font-family: var(--font-num); }
-.money-in input, .field select, .plain-in { border: 0; background: transparent; padding: 9px 10px; width: 100%; min-width: 0; font-family: var(--font-num); font-variant-numeric: tabular-nums; }
-.field select, .plain-in { border: 1px solid var(--line); background: var(--bg); border-radius: var(--radius); font-family: var(--font-body); }
-input[type="range"] { width: 100%; accent-color: var(--accent); }
-.row2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-@media (max-width: 480px) { .row2 { grid-template-columns: minmax(0, 1fr); } }
-.checks { display: grid; gap: 8px; }
-.checks label { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; }
-.checks input { accent-color: var(--accent); margin-top: 4px; }
-fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 8px; }
-legend { font-weight: 600; font-size: 14.5px; padding: 0; margin-bottom: 6px; }
-
-/* results statement */
-.headline { display: grid; gap: 4px; padding-bottom: 16px; border-bottom: 2px solid var(--fg); }
-.headline .big { font-family: var(--font-num); font-variant-numeric: tabular-nums; font-size: clamp(28px, 4.5vw, 38px); font-weight: 500; line-height: 1.1; }
-.headline .big.bad { color: var(--bad); }
-.verdict { font-size: 15px; }
-.lines { display: grid; }
-.line { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; }
-.line:last-child { border-bottom: 0; }
-.line .num { white-space: nowrap; }
-.line.total { font-weight: 600; border-top: 1px solid var(--fg); }
-.compare { display: grid; gap: 10px; }
-.bar-row { display: grid; grid-template-columns: 150px minmax(0, 1fr) 96px; gap: 10px; align-items: center; font-size: 14px; }
-@media (max-width: 480px) { .bar-row { grid-template-columns: 110px minmax(0, 1fr) 84px; font-size: 13px; } }
-.bar { height: 12px; background: var(--sunk); border-radius: 3px; overflow: hidden; }
-.bar i { display: block; height: 100%; background: var(--muted); border-radius: 3px; }
-.bar-row.us .bar i { background: var(--accent); }
-.bar-row .num { text-align: right; }
-.alert { background: var(--bad-bg); color: var(--bad); padding: 10px 14px; border-radius: var(--radius); font-size: 14.5px; font-weight: 500; }
-
-.chart-wrap { width: 100%; overflow-x: auto; }
-.chart-wrap svg { display: block; width: 100%; min-width: 480px; height: auto; }
-.table-wrap { overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-th { text-align: right; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 6px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
-th:first-child, td:first-child { text-align: left; }
-td { text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--line); font-family: var(--font-num); font-variant-numeric: tabular-nums; white-space: nowrap; }
-td.neg { color: var(--bad); }
-details summary { cursor: pointer; font-weight: 600; font-size: 14.5px; }
-details[open] summary { margin-bottom: 8px; }
-.fine { font-size: 12.5px; color: var(--muted); }
-
-.cta { background: var(--accent); color: var(--accent-fg); border-radius: var(--radius); padding: 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
-.cta h2 { font-size: 26px; }
-.cta p { opacity: .88; max-width: 560px; margin-top: 6px; }
-.cta .btn { background: var(--accent-fg); color: var(--accent); border-color: var(--accent-fg); }
-.cta-actions { display: flex; flex-wrap: wrap; gap: 10px; }
-.cta .btn.ghost { background: transparent; color: var(--accent-fg); border-color: currentColor; }
-footer { color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
-</style>
-
+  <style>
+  /* Cash-flow forecaster: uses the site's navy/gold palette and fonts (from /style.css). */
+  .cf-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 24px; align-items: start; }
+  @media (max-width: 880px) { .cf-grid { grid-template-columns: minmax(0, 1fr); } }
+  .cf-panel { display: grid; gap: 18px; min-width: 0; }
+  .cf-results { border-left: 1px solid var(--line); padding-left: 24px; }
+  @media (max-width: 880px) { .cf-results { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 22px; } }
+  .cf-panel h2 { font-size: 1.3rem; margin: 0; }
+  .cf-panel .hint, .cf-panel .fine { color: var(--muted); font-size: .92rem; margin: 0; }
+  .cf-panel .fine { font-size: .85rem; }
+  .cf-panel .num, .cf-panel output, .cf-panel td { font-variant-numeric: tabular-nums; }
+  .cf-panel .label { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .cf-panel .field { display: grid; gap: 6px; min-width: 0; }
+  .cf-panel .field-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .cf-panel .field label { font-weight: 600; }
+  .cf-panel .money-in { display: flex; align-items: center; border: 1px solid #cfd8e0; background: #fff; border-radius: 6px; }
+  .cf-panel .money-in:focus-within, .cf-panel select:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+  .cf-panel .money-in span { padding-left: 12px; color: var(--muted); }
+  .cf-panel .money-in input { border: 0; background: transparent; padding: 11px 12px; width: 100%; min-width: 0; font: inherit; outline: none; }
+  .cf-panel select { border: 1px solid #cfd8e0; background: #fff; border-radius: 6px; padding: 11px 12px; width: 100%; font: inherit; }
+  .cf-panel input[type="range"] { width: 100%; accent-color: var(--navy); }
+  .cf-panel .row2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  @media (max-width: 480px) { .cf-panel .row2 { grid-template-columns: minmax(0, 1fr); } }
+  .cf-panel .headline { display: grid; gap: 4px; padding-bottom: 16px; border-bottom: 2px solid var(--navy); }
+  .cf-panel .headline .big { font-family: Poppins, sans-serif; font-size: clamp(1.8rem, 4.5vw, 2.4rem); font-weight: 700; color: var(--navy); line-height: 1.1; }
+  .cf-panel .headline .big.bad { color: #b23a2e; }
+  .cf-panel .verdict { margin: 0; }
+  .cf-panel .line { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+  .cf-panel .line:last-child { border-bottom: 0; }
+  .cf-panel .line .num { white-space: nowrap; font-weight: 600; }
+  .cf-panel .chart-wrap { width: 100%; overflow-x: auto; }
+  .cf-panel .chart-wrap svg { display: block; width: 100%; min-width: 480px; height: auto; }
+  .cf-panel .table-wrap { overflow-x: auto; }
+  .cf-panel table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+  .cf-panel th { text-align: right; font-size: .72rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); padding: 6px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  .cf-panel th:first-child, .cf-panel td:first-child { text-align: left; }
+  .cf-panel td { text-align: right; padding: 6px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  .cf-panel td.neg { color: #b23a2e; }
+  .cf-panel details summary { cursor: pointer; font-weight: 600; }
+  .cf-panel { --accent: var(--navy); --chart-fill: rgb(18 49 79 / .10); --fg: var(--ink); --bad: #b23a2e; --font-num: inherit; }
+  </style>
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <a class="brand" id="home-link" href="/"><span class="mark" aria-hidden="true">RA</span><span>RA Ledger Solutions</span></a>
-    <a class="btn primary" data-book href="/contact">Book a free consultation</a>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class='brand' href='/'>
+        <svg class="brand-logo" height="40" viewBox="0 0 600 100" role="img" aria-label="RA Ledger Solutions logo">
+          <text x="0" y="76" font-family="Georgia, 'Times New Roman', serif" font-size="88" font-weight="700" fill="#12314f">R</text>
+          <text x="60" y="76" font-family="Georgia, 'Times New Roman', serif" font-size="88" font-weight="700" fill="#12314f">A</text>
+          <path d="M6 84 C 40 76, 70 62, 118 40" stroke="#8a97a3" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M6 90 C 42 82, 74 68, 122 46" stroke="#12314f" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <text x="182" y="68" font-family="Poppins, 'Segoe UI', Arial, sans-serif" font-size="42" font-weight="500" fill="#12314f">Ledger Solutions</text>
+        </svg>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+      <nav class="main-nav" aria-label="Main">
+        <a class href='/'>Home</a>
+        <a class href='/services'>Services</a>
+        <a class href='/contact'>Contact</a>
+        <a class='active' href='/tools' aria-current="page">Free Tools</a>
+        <a href="https://portal.raledgersolutions.com">Client Portal</a>
+        <a class='nav-cta' href='/contact'>Free Consultation</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="intro">
-    <span class="label"><a href="/tools">Free tools</a></span>
-    <h1>Cash-flow forecaster</h1>
-    <p>See whether you'll have enough cash over the next 12 months. Nothing you type leaves your browser, and there's no sign-up.</p>
-  </section>
+  <main id="main">
+    <section class="hero tools-hero" aria-labelledby="page-title">
+      <div class="container">
+        <p class="eyebrow"><a href="/tools" style="color:inherit">Free Tools</a></p>
+        <h1 id="page-title">Cash-Flow Forecaster</h1>
+        <p class="lead">See whether you'll have enough cash over the next 12 months. Rough numbers are fine. Nothing you enter is saved or sent anywhere.</p>
+        <p class="hero-local">Built for Staten Island business owners.</p>
+      </div>
+    </section>
 
-  <!-- CASH-FLOW FORECASTER -->
-  <section class="tool" id="cash" aria-label="Cash-flow forecaster">
-    <form class="card" id="cash-form" novalidate>
+    <noscript>
+      <div class="container"><p class="noscript-note">This tool needs JavaScript, which looks turned off in your browser. Turn it on and reload the page, or <a href="/contact">contact us</a> and we'll walk through it with you.</p></div>
+    </noscript>
+
+    <section class="tool-section" id="cash" aria-labelledby="cash-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">Tool 3</p>
+          <h2 id="cash-title">The 12-Month Cash Forecast</h2>
+          <p>Enter today's cash, typical monthly sales and expenses, and how fast customers pay. The chart shows your month-by-month balance.</p>
+        </div>
+        <div class="card">
+          <div class="cf-grid">
+            <form class="cf-panel" id="cash-form" novalidate>
       <div><h2>Your starting point</h2><p class="hint">Use averages from the last few months. Rough numbers are fine.</p></div>
       <div class="field"><label for="cf-start">Cash in the bank today</label><div class="money-in"><span>$</span><input id="cf-start" type="number" inputmode="decimal" min="0" step="100" value="25000"></div></div>
       <div class="row2">
@@ -179,8 +140,7 @@ footer { color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; j
       </div>
       <p class="fine">For example a tax payment, equipment purchase or insurance renewal.</p>
     </form>
-
-    <div class="card" aria-live="polite">
+            <div class="cf-panel cf-results" aria-live="polite">
       <div class="headline">
         <span class="label" id="cf-h-label">Lowest cash balance</span>
         <span class="big" id="cf-low">$0</span>
@@ -196,16 +156,39 @@ footer { color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; j
       <details><summary>Month-by-month table</summary><div class="table-wrap" id="cf-table"></div></details>
       <p class="fine">A simple projection for general information only. It is not accounting, tax, legal or financial advice, and it is not a guarantee. It assumes steady growth and that every invoice gets paid.</p>
     </div>
-  </section>
+          </div>
+        </div>
+        <p class="hint" style="margin-top:18px">Want to talk through the results? <a href="/contact">Book a free 20-minute consultation</a>. Not a CPA firm; using this tool doesn't create a client relationship.</p>
+      </div>
+    </section>
+  </main>
 
-  <section class="cta">
-    <div><h2>Want a second pair of eyes on these numbers?</h2><p>Book a free 20-minute consultation. We'll talk through what you're seeing and what it would take to keep your books current.</p></div>
-    <div class="cta-actions"><a class="btn" data-book href="/contact">Book a free consultation</a><button class="btn ghost" type="button" id="share">Copy link to this tool</button></div>
-  </section>
+  <footer class="site-footer">
+    <div class="container">
+      <div><strong>RA Ledger Solutions</strong> &middot; A DBA of Alquds Accounting &amp; Tax Services LLC</div>
+      <div>Staten Island, NY 10309 &middot; <a href="tel:7182856959">718-285-6959</a> &middot; <a href="mailto:info@raledgersolutions.com">info@raledgersolutions.com</a> &middot; <a href="https://calendar.app.google/5dUvX5a5fVK2CixQ8" target="_blank" rel="noopener noreferrer" aria-label="Book a free call (opens in a new tab)">Book a free call</a></div>
+      <div class="foot-links">
+        <a href='/'>Home</a>
+        <a href='/services'>Services</a>
+        <a href="/bookkeeping-staten-island">Bookkeeping in Staten Island</a>
+        <a href="/bookkeeping-brooklyn">Bookkeeping in Brooklyn</a>
+        <a href="/quickbooks-cleanup-nyc">QuickBooks Cleanup NYC</a>
+        <a href='/contact'>Contact</a>
+        <a href='/tools'>Free Tools</a>
+        <a href="https://portal.raledgersolutions.com">Client Portal</a>
+        <a href='/privacy'>Privacy &amp; Terms</a>
+        <a href="https://g.page/r/CdsIRr50wkQ3ECE/review" target="_blank" rel="noopener noreferrer" aria-label="Leave a Google Review (opens in a new tab)">Leave a Google Review</a>
+      </div>
+      <div class="foot-note">These tools run entirely in your browser. We don't collect, store or send anything you type, and this page sets no cookies. Fonts load from Google Fonts. The booking button opens Google Calendar, a separate service with its own privacy policy.</div>
+      <div class="copyright">Serving Staten Island, Brooklyn, and the greater New York City area. &middot; &copy; 2026 RA Ledger Solutions. All rights reserved. QuickBooks and ProAdvisor are trademarks of Intuit Inc.</div>
+    </div>
+  </footer>
 
-  <footer><span>© <span id="yr"></span> RA Ledger Solutions, a DBA of Alquds Accounting &amp; Tax Services LLC. Not a CPA firm; no audit, attest, review or compilation services. Using this tool doesn't create a client relationship. <a href="/privacy">Privacy &amp; Terms</a></span><span id="share-msg" aria-live="polite"></span></footer>
-</div>
-
+  <script src="/script.js" defer></script>
+  <div class="call-bar" role="region" aria-label="Quick contact">
+    <a class="call-now" href="tel:7182856959">Call 718-285-6959</a>
+    <a class="call-msg" href="/contact">Send a message</a>
+  </div>
 <script>
 (() => {
   /* ===== SETTINGS: edit these to match your business ===== */
@@ -221,8 +204,6 @@ footer { color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; j
   const short = (n) => { const a = Math.abs(n), s = n < 0 ? "−" : ""; return a >= 1e6 ? s + "$" + (a / 1e6).toFixed(a >= 1e7 ? 0 : 1) + "M" : a >= 1000 ? s + "$" + Math.round(a / 1000) + "k" : s + "$" + Math.round(a); };
 
   document.querySelectorAll("[data-book]").forEach((a) => (a.href = CONFIG.bookingUrl));
-  $("home-link").href = CONFIG.homeUrl;
-  $("yr").textContent = new Date().getFullYear();
 
   // month labels starting next month
   const now = new Date();
@@ -293,12 +274,6 @@ footer { color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; j
   document.querySelectorAll("form").forEach((f) => f.addEventListener("submit", (e) => e.preventDefault()));
   cashFlow();
 
-  // ===== share
-  $("share").onclick = async () => {
-    const url = location.href.split("#")[0];
-    try { await navigator.clipboard.writeText(url); $("share-msg").textContent = "Link copied."; }
-    catch { $("share-msg").textContent = "Copy this link: " + url; }
-  };
 })();
 </script>
 </body>
