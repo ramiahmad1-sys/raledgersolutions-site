@@ -7,7 +7,12 @@
   var CHAT_API_URL = 'https://ra-ledger-phone.onrender.com/chat';
 
   var css = ''
-  + '#ra-chat-btn{position:fixed;right:16px;bottom:16px;z-index:9999;background:#12314f;color:#fff;border:0;border-radius:28px;padding:12px 18px;font:600 15px system-ui,Arial,sans-serif;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}'
+  + '#ra-chat-btn{position:fixed;right:16px;bottom:16px;z-index:9999;display:inline-flex;align-items:center;gap:10px;background:#c9973f;color:#0b2038;border:3px solid #fff;border-radius:999px;padding:14px 22px 14px 16px;font:700 17px system-ui,Arial,sans-serif;cursor:pointer;box-shadow:0 6px 22px rgba(11,32,56,.35);animation:ra-pulse 2.4s ease-out 1.5s 3}'
+  + '#ra-chat-btn:hover{background:#dcae57;transform:translateY(-1px)}'
+  + '#ra-chat-btn svg{width:26px;height:26px;flex:none}'
+  + '@keyframes ra-pulse{0%{box-shadow:0 0 0 0 rgba(201,151,63,.65),0 6px 22px rgba(11,32,56,.35)}100%{box-shadow:0 0 0 18px rgba(201,151,63,0),0 6px 22px rgba(11,32,56,.35)}}'
+  + '@media (prefers-reduced-motion:reduce){#ra-chat-btn{animation:none}}'
+  + '@media (max-width:480px){#ra-chat-btn{font-size:16px;padding:13px 18px 13px 14px}}'
   + '#ra-chat-box{position:fixed;right:16px;bottom:72px;z-index:9999;width:min(340px,calc(100vw - 32px));height:440px;max-height:calc(100vh - 170px);display:none;flex-direction:column;background:#fff;border:1px solid #c9d1da;border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,.25);font:14px system-ui,Arial,sans-serif;color:#1a1a1a}'
   + '#ra-chat-box.open{display:flex}'
   + '#ra-chat-head{background:#12314f;color:#fff;padding:10px 12px;border-radius:12px 12px 0 0;font-weight:600;display:flex;justify-content:space-between;align-items:center}'
@@ -28,7 +33,7 @@
   btn.id = 'ra-chat-btn';
   btn.type = 'button';
   btn.setAttribute('aria-label', 'Open chat with RA Ledger Solutions');
-  btn.textContent = 'Chat with us';
+  btn.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 3C6.5 3 2 6.6 2 11c0 2.2 1.1 4.2 3 5.6V21l3.7-2.2c1 .3 2.1.4 3.3.4 5.5 0 10-3.6 10-8.2S17.5 3 12 3zm-4.5 9.4a1.3 1.3 0 110-2.6 1.3 1.3 0 010 2.6zm4.5 0a1.3 1.3 0 110-2.6 1.3 1.3 0 010 2.6zm4.5 0a1.3 1.3 0 110-2.6 1.3 1.3 0 010 2.6z"/></svg><span>Chat with us</span>';
 
   var box = document.createElement('div');
   box.id = 'ra-chat-box';
@@ -47,7 +52,7 @@
       if (cs.display !== 'none' && cs.position === 'fixed') lift = Math.round(bar.getBoundingClientRect().height);
     }
     btn.style.bottom = (16 + lift) + 'px';
-    box.style.bottom = (72 + lift) + 'px';
+    box.style.bottom = (84 + lift) + 'px';
   }
 
   // Stay hidden until the chat backend answers, so visitors never see a broken chat button.
