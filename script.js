@@ -33,3 +33,26 @@
   s.src = '/assets/chat-widget.js';
   document.body.appendChild(s);
 })();
+
+// Contact form: send without leaving the page, then show the thank-you page.
+(function () {
+  var form = document.querySelector('form.contact-form');
+  if (!form || !window.fetch) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var status = form.querySelector('.form-status');
+    var btn = form.querySelector('button[type="submit"]');
+    if (btn) btn.disabled = true;
+    if (status) status.textContent = 'Sending...';
+    fetch(form.action, {
+      method: 'POST',
+      body: new URLSearchParams(new FormData(form)),
+      headers: { Accept: 'application/json' }
+    })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); window.location.href = '/thank-you'; })
+      .catch(function () {
+        if (btn) btn.disabled = false;
+        if (status) status.textContent = 'Sorry, your message could not be sent. Please call 718-285-6959 or email info@raledgersolutions.com.';
+      });
+  });
+})();
