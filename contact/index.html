@@ -176,9 +176,9 @@
         </div>
       </div>
 
-      <form action='/thank-you' class='contact-form' method='POST' name='inquiry'>
-        <input type="hidden" name="form-name" value="inquiry">
-        <p style="display:none;" aria-hidden="true"><label>Leave this field empty: <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
+      <form action="https://ra-ledger-phone.onrender.com/contact-form" class="contact-form" method="POST" name="inquiry">
+        
+        <p style="display:none;" aria-hidden="true"><label>Leave this field empty: <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
         <div class="two-col">
           <div>
             <label for="name">Name <span class="req">(required)</span></label>
@@ -213,6 +213,7 @@
           <textarea id="message" name="Message"></textarea>
         </div>
         <button type="submit" class="btn" style="border:none;cursor:pointer;">Send Message</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
         <p class="form-note"><strong>Please do not send sensitive information through this form.</strong> Leave out Social Security numbers, EINs, bank account or card numbers, and account credentials. We will arrange a secure method for any documents once we speak.</p>
         <p style="font-size:0.82rem;color:var(--muted);margin:10px 0 0;">By submitting this form you agree to be contacted about your inquiry. See our <a href='/privacy'>Privacy &amp; Terms</a>.</p>
       </form>
