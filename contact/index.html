@@ -178,7 +178,8 @@
 
       <form action="https://ra-ledger-phone.onrender.com/contact-form" class="contact-form" method="POST" name="inquiry">
         
-        <p style="display:none;" aria-hidden="true"><label>Leave this field empty: <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+        <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true"><label>Leave this field empty: <input name="_gotcha" tabindex="-1" autocomplete="off"></label><label>Website: <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <input type="hidden" name="_ts" value="">
         <div class="two-col">
           <div>
             <label for="name">Name <span class="req">(required)</span></label>
@@ -212,6 +213,7 @@
           <label for="message">Message</label>
           <textarea id="message" name="Message"></textarea>
         </div>
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAGPZdv89yQEUHWUC" data-theme="auto" data-action="contact"></div>
         <button type="submit" class="btn" style="border:none;cursor:pointer;">Send Message</button>
         <p class="form-status" role="status" aria-live="polite"></p>
         <p class="form-note"><strong>Please do not send sensitive information through this form.</strong> Leave out Social Security numbers, EINs, bank account or card numbers, and account credentials. We will arrange a secure method for any documents once we speak.</p>
@@ -248,6 +250,7 @@
     </div>
   </footer>
 
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script src="/script.js" defer></script>
   <script src="/motion.js" defer></script>
   <div class="call-bar" role="region" aria-label="Quick contact">
