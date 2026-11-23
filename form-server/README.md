@@ -2,7 +2,7 @@
 
 Page side (already wired in `contact/index.html` and `script.js`):
 - Hidden honeypots `_gotcha` and `website`, plus `_ts` (milliseconds the visitor spent on the form).
-- Cloudflare Turnstile widget. Replace `TURNSTILE_SITE_KEY` in `contact/index.html` with your site key.
+- Cloudflare Turnstile widget, site key already set in `contact/index.html`.
 
 Server side (Render service `ra-ledger-phone`, `POST /contact-form`):
 1. Copy `spam-guard.js` into that service.
