@@ -38,9 +38,18 @@
 (function () {
   var form = document.querySelector('form.contact-form');
   if (!form || !window.fetch) return;
+  var formLoadedAt = Date.now();
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var status = form.querySelector('.form-status');
+    var ts = form.querySelector('input[name="_ts"]');
+    if (ts && !ts.value) ts.value = String(Date.now() - formLoadedAt);
+    var captcha = form.querySelector('.cf-turnstile');
+    var captchaOn = captcha && captcha.getAttribute('data-sitekey') !== 'TURNSTILE_SITE_KEY';
+    if (captchaOn && !form.querySelector('[name="cf-turnstile-response"]').value) {
+      if (status) status.textContent = 'Please wait a moment for the security check to finish, then send again.';
+      return;
+    }
     var btn = form.querySelector('button[type="submit"]');
     if (btn) btn.disabled = true;
     if (status) status.textContent = 'Sending...';
@@ -52,6 +61,7 @@
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); window.location.href = '/thank-you'; })
       .catch(function () {
         if (btn) btn.disabled = false;
+        if (window.turnstile) try { window.turnstile.reset(); } catch (_) {}
         if (status) status.textContent = 'Sorry, your message could not be sent. Please call 718-285-6959 or email info@raledgersolutions.com.';
       });
   });
