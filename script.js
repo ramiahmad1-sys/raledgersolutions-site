@@ -58,7 +58,7 @@
       body: new URLSearchParams(new FormData(form)),
       headers: { Accept: 'application/json' }
     })
-      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); window.location.href = '/thank-you'; })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); window.location.href = '/thank-you/'; })
       .catch(function () {
         if (btn) btn.disabled = false;
         if (window.turnstile) try { window.turnstile.reset(); } catch (_) {}
